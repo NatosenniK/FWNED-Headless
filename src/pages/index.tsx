@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+import "../components/index.css";
 
 const links = [
   {
@@ -34,16 +34,8 @@ const links = [
 ]
 
 const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
+  { text: "Testing Posts", url: "posts" },
   { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
 ]
 
 const moreLinks = [
@@ -71,7 +63,7 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 const IndexPage = () => (
   <Layout>
-    <div className={styles.textCenter}>
+    <div className="textCenter">
       <StaticImage
         src="../images/example.png"
         loading="eager"
@@ -84,7 +76,7 @@ const IndexPage = () => (
       <h1>
         Welcome to <b>Gatsby!</b>
       </h1>
-      <p className={styles.intro}>
+      <p className="intro">
         <b>Example pages:</b>{" "}
         {samplePageLinks.map((link, i) => (
           <React.Fragment key={link.url}>
@@ -96,16 +88,16 @@ const IndexPage = () => (
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
     </div>
-    <ul className={styles.list}>
+    <ul className="list">
       {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
+        <li key={link.url} className="listItem">
           <a
-            className={styles.listItemLink}
+            className="listItemLink"
             href={`${link.url}${utmParameters}`}
           >
             {link.text} ↗
           </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
+          <p className="listItemDescription">{link.description}</p>
         </li>
       ))}
     </ul>
@@ -123,6 +115,6 @@ const IndexPage = () => (
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Home" />
+export const Head = () => <Seo title="Home" description={undefined} children={undefined} />
 
 export default IndexPage
