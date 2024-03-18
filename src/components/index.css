@@ -43,6 +43,9 @@
   margin-bottom: 0;
   margin-top: var(--space-1);
 }
+.dark .listItemDescription {
+  color: var(--dark-color-text);
+}
 
 .textCenter {
   text-align: center;
@@ -52,3 +55,41 @@
   max-width: none;
   line-height: var(--line-height-loose);
 }
+/* DARK MODE PILL BOX STYLES */
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #fff;}
+
+.fa-sun {color: #fff;}
+
+.checkbox-label .circle {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .circle {
+  transform: translateX(24px);
+}
+/* DARK MODE PILL BOX STYLES END */

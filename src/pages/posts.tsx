@@ -4,6 +4,9 @@ import { PostsAPI } from "../services/posts/posts.api";
 import { PostTypes } from "../services/posts/posts.types";
 import Layout from "../components/layout"
 import { Link } from "gatsby";
+import PostComponent from "../components/post-component";
+
+
 
 function Posts() {
     // State for storing posts data
@@ -35,15 +38,10 @@ function Posts() {
                 <>Loading...</>
             ) : (
                 <>
-                    <h1>Hi from the Posts page</h1>
-                    <p>Welcome to Posts</p>
-                
                     <div>
                         {posts.map(post => (
-                            <div key={post.id}>
-                            <h2>{post.title.rendered}</h2>
-                            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
-                            </div>
+                            <PostComponent post={post} />
+
                         ))}
                     </div>
 
