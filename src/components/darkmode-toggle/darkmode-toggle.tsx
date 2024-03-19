@@ -3,29 +3,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
-// This component represents the dark mode toggle button that changes the background color of the website
 function DarkModeToggle() {
-  // Set the initial state of dark mode to off
-  const [isDarkModeOn, setIsDarkModeOn] = useState(true);
 
-  // Use effect hook to update the document body class when the state of dark mode changes
+  const [isDarkModeOn, setIsDarkModeOn] = useState(() => localStorage.getItem('darkMode') === 'true');
+
   useEffect(() => {
     if (isDarkModeOn) {
-      // If dark mode is on, add the 'dark' class to the body to change the background color
       document.body.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
     } else {
-      // If dark mode is off, remove the 'dark' class from the body to change the background color
       document.body.classList.remove('dark');
+      localStorage.setItem('darkMode', 'false');
     }
   }, [isDarkModeOn]);
 
-  // Function to handle the toggle button click event
   function handleToggleClick() {
-    // Set the state of dark mode to the opposite of its current value
-    setIsDarkModeOn(!isDarkModeOn);
+    setIsDarkModeOn(prevMode => !prevMode);
   }
 
-  // Return the JSX for the toggle button
   return (
     <div className='mt-2'>
       <input
