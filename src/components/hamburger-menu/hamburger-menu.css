@@ -1,0 +1,29 @@
+.menu {
+    width: 420px;
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #d3d3d3;
+}
+.dark .menu {
+    background-color: #121a21;
+}
+.menu a {
+    font-size: 16px;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.menu a:hover {
+    text-decoration: underline;
+}
+li.sidenav-elements {
+    list-style-type: none;
+}
+.side-navigation-list {
+    margin-left: 0;
+}
+.menu-icon:hover {
+    cursor: pointer;
+}

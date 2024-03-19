@@ -27,7 +27,7 @@ function DarkModeToggle() {
 
   // Return the JSX for the toggle button
   return (
-    <div className='mt-3'>
+    <div className='mt-2'>
       <input
         type="checkbox"
         id="checkbox"
