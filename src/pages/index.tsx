@@ -2,15 +2,15 @@ import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import "../components/index.css";
-import PostComponent from "../components/post-component"
+import PostComponent from "../components/post-component/post-component"
 
 function IndexPage() {
   const data = useStaticQuery(graphql`
   query GetPosts {
-      allWpPost {
+      allWpPost(sort: {fields: date, order: DESC}) {
         nodes {
           id
           title

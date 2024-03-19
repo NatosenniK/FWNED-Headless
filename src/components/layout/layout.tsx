@@ -11,7 +11,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode
+}
+
+function Layout(props: LayoutProps) {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -32,18 +36,22 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
         }}
       >
-        <main>{children}</main>
-        <footer
+        <main>{props.children}</main>
+        
+      </div>
+      <footer
           style={{
             marginTop: `var(--space-5)`,
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built by
-          {` `}
-          <a href="https://mattkinne.com/" target="_blank">Matt Kinne</a>
+          <div className="content-wrapper">
+            © {new Date().getFullYear()} &middot; Built by
+            {` `}
+            <a href="https://mattkinne.com/" target="_blank">Matt Kinne</a>
+          </div>
+          
         </footer>
-      </div>
     </>
   )
 }

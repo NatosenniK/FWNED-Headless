@@ -1,0 +1,12 @@
+.wp-block-gallery.has-nested-images {
+    display: flex !important;
+}
+
+.wp-block-gallery.has-nested-images img {
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.wp-element-caption {
+    text-align: center;
+}

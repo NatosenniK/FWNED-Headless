@@ -1,7 +1,6 @@
 import React from "react"
-import { PostTypes } from "../services/posts/posts.types";
+import { PostTypes } from "../../services/posts/posts.types";
 import { Link } from "gatsby";
-
 
 function PostComponent(props: { post: PostTypes.PostNode }) {
     return (

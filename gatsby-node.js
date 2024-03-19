@@ -26,7 +26,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allWpPost.nodes.forEach((node) => {
     createPage({
       path: node.uri,
-      component: path.resolve(`./src/templates/post-template.tsx`),
+      component: path.resolve(`./src/components/post-template/post-template.tsx`),
       context: {
         id: node.id,
       },

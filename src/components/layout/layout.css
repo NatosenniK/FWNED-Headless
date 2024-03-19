@@ -83,6 +83,7 @@ h1 {
   padding: 0;
   line-height: var(--line-height-dense);
   letter-spacing: -0.01em;
+  color: #921e27;
 }
 h1 > b {
   color: var(--color-primary);
@@ -183,9 +184,6 @@ p *:last-child {
 li > p {
   margin-bottom: calc(var(--space-4) / 2);
 }
-p {
-  max-width: 680px;
-}
 code {
   font-size: 0.875rem;
 }
@@ -228,4 +226,24 @@ pre code:after,
 pre tt:before,
 pre tt:after {
   content: none;
+}
+
+footer {
+  background: #d3d3d3;
+  color: #121a21;
+  font-size: 13px;
+}
+
+.dark footer {
+  background: #121a21;
+  color: #8d8e92;
+}
+
+footer .content-wrapper {
+  padding: 14px 25px;
+}
+
+.content-wrapper {
+  max-width: 1128px;
+  margin: 0 auto;
 }
