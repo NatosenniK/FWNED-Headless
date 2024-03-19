@@ -1,58 +1,45 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Seo from "../components/seo"
-import { PostsAPI } from "../services/posts/posts.api";
-import { PostTypes } from "../services/posts/posts.types";
 import Layout from "../components/layout"
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import PostComponent from "../components/post-component";
 
 
 
 function Posts() {
-    // State for storing posts data
-    const [posts, setPosts] = useState<PostTypes.Post[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+    const data = useStaticQuery(graphql`
+    query GetPosts {
+        allWpPost {
+          nodes {
+            id
+            title
+            date
+            content
+            featuredImage {
+              node {
+                sourceUrl
+                altText
+                mediaDetails {
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
+      }
+    `);
 
-    useEffect(() => {
-        const queryParams: PostTypes.QueryParams = {
-        limit: 5,
-        };
-
-        // Fetch posts data
-        PostsAPI.getPosts(queryParams)
-        .then(fetchedPosts => {
-            setPosts(fetchedPosts);
-            setLoading(false);
-        })
-        .catch(err => {
-            console.error("Failed to fetch posts:", err);
-            setError('Failed to fetch posts');
-            setLoading(false);
-        });
-    }, []);
+    const posts = data.allWpPost.nodes;
 
     return (
         <Layout>
-            {loading ? (
-                <>Loading...</>
-            ) : (
-                <>
-                    <div>
-                        {posts.map(post => (
-                            <PostComponent post={post} />
-
-                        ))}
-                    </div>
-
-                    <Link to="/">Go back to the homepage</Link>
-                </>
-            )}
-
-            {error && 
-                <>Error: {error}</>
-            }
-           
+            <div>
+                {posts.map((post: any) => (
+                    <PostComponent key={post.id} post={post} />
+                ))}
+            </div>
+            <Link to="/">Go back to the homepage</Link>
         </Layout>
     );
 }
