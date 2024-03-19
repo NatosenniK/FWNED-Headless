@@ -1,16 +1,19 @@
 import React from "react"
 import { PostTypes } from "../services/posts/posts.types";
+import { Link } from "gatsby";
 
 
 function PostComponent(props: { post: PostTypes.PostNode }) {
     return (
         <div key={props.post.id}>
-            <h2>{props.post.title}</h2>
+            <Link to={props.post.uri}><h2>{props.post.title}</h2></Link>
             {props.post.featuredImage ? (
-                <img
-                    alt="example"
-                    src={props.post.featuredImage.node.sourceUrl}
-                />
+                <Link to={props.post.uri}>
+                    <img
+                        alt="example"
+                        src={props.post.featuredImage.node.sourceUrl}
+                    />
+                </Link>
             ) : (
                 <></>
             )}
