@@ -4,6 +4,8 @@ import Layout from "../layout/layout"
 import { PostTypes } from "../../services/posts/posts.types"
 import Seo from "../seo";
 import './post-template.css'
+import Sidebar from "../sidebar/sidebar";
+import { formatDate } from "../../services/date-formatter/date-formatter";
 
 export default function PostTemplate({ data }: { data: PostTypes.QueryResult }) {
 
@@ -19,15 +21,22 @@ export default function PostTemplate({ data }: { data: PostTypes.QueryResult }) 
     <>
       <Head />
       <Layout>
-        <div>
-          <h1>{wpPost.title}</h1>
-          {wpPost.featuredImage &&
-            <img
-                alt="example"
-                src={wpPost.featuredImage.node.sourceUrl}
-            />
-          }
-          <div dangerouslySetInnerHTML={{ __html: wpPost.content }} />
+        <div className="d-flex post-template">
+          <div style={{ paddingRight: "50px"}} className="col-9">
+            <h1>{wpPost.title}</h1>
+            <div className="meta-data">
+              <div className="author">By: <span>{wpPost.author.node.name}</span></div>
+              <div className="date">Published: <span>{formatDate(wpPost.date)}</span></div>
+            </div>
+            {wpPost.featuredImage &&
+              <img
+                  width={'100%'}
+                  src={wpPost.featuredImage.node.sourceUrl}
+              />
+            }
+            <div dangerouslySetInnerHTML={{ __html: wpPost.content }} />
+          </div>
+          <Sidebar />
         </div>
       </Layout>
     </>
@@ -49,6 +58,12 @@ export const query = graphql`
           }
         }
       }
+      author {
+        node {
+          name
+        }
+      }
+      date
     }
   }
 `

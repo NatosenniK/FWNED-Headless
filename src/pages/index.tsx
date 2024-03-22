@@ -6,6 +6,7 @@ import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import "../components/index.css";
 import PostComponent from "../components/post-component/post-component"
+import Sidebar from "../components/sidebar/sidebar"
 
 function IndexPage() {
   const data = useStaticQuery(graphql`
@@ -36,12 +37,15 @@ function IndexPage() {
 
   return (
       <Layout>
-          <div>
-              {posts.map((post: any) => (
-                  <PostComponent key={post.id} post={post} />
-              ))}
+          <div className="d-flex">
+            <div style={{ maxWidth: "var(--size-content)", paddingRight: "50px"}} className="col-9">
+                {posts.map((post: any, index: number) => (
+                  <PostComponent key={post.id} post={post} isMostRecent={index === 0} />
+                ))}
+            </div>
+            <Sidebar />
           </div>
-          <Link to="/">Go back to the homepage</Link>
+
       </Layout>
   );
 }

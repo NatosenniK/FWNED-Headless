@@ -32,7 +32,7 @@ function Layout(props: LayoutProps) {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
+          maxWidth: `var(--size-wrapper)`,
           padding: `var(--size-gutter)`,
         }}
       >
@@ -45,7 +45,7 @@ function Layout(props: LayoutProps) {
             fontSize: `var(--font-sm)`,
           }}
         >
-          <div className="content-wrapper">
+          <div className="container">
             © {new Date().getFullYear()} &middot; Built by
             {` `}
             <a href="https://mattkinne.com/" target="_blank">Matt Kinne</a>

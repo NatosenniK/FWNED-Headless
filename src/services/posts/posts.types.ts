@@ -40,7 +40,13 @@ export namespace PostTypes {
             node: {
                 sourceUrl: string
             }
-        }
+          }
+          author: {
+            node: {
+              name: string
+            }
+          }
+          date: string
         }
       }
       
