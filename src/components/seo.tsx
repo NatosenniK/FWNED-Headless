@@ -8,7 +8,13 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, title, children }) {
+interface SeoProps {
+  description: string | undefined
+  title: string
+  children?: string
+}
+
+function Seo(props: SeoProps ) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -23,21 +29,21 @@ function Seo({ description, title, children }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = props.description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
 
   return (
     <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+      <title>{defaultTitle ? `${props.title} | ${defaultTitle}` : props.title}</title>
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={props.title} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={props.title} />
       <meta name="twitter:description" content={metaDescription} />
-      {children}
+      {props.children}
     </>
   )
 }

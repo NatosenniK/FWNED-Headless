@@ -15,7 +15,21 @@ export default function PostTemplate({ data }: { data: PostTypes.QueryResult }) 
     return <div>Post not found</div>;
   }
 
-  const Head = () => <Seo title={wpPost.title} description={undefined} children={undefined} />;
+  let seoTitle = wpPost.title
+  let seoDesc = ''
+
+  if(wpPost.seo != null) {
+    if(wpPost.seo.title) {
+      seoTitle = wpPost.seo.title
+    }
+
+    if(wpPost.seo.metaDesc) {
+      seoDesc = wpPost.seo.metaDesc
+    }
+    
+  }
+
+  const Head = () => <Seo title={seoTitle} description={seoDesc} children={undefined} />;
   
   return (
     <>
@@ -64,6 +78,11 @@ export const query = graphql`
         }
       }
       date
+      seo {
+        metaDesc
+        fullHead
+        title
+      }
     }
   }
 `

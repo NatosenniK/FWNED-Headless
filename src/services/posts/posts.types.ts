@@ -47,6 +47,11 @@ export namespace PostTypes {
             }
           }
           date: string
+          seo: {
+            fullHead: string
+            metaDesc: string
+            title: string
+          }
         }
       }
       

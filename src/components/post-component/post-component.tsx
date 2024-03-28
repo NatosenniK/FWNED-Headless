@@ -3,7 +3,6 @@ import { PostTypes } from "../../services/posts/posts.types";
 import { Link } from "gatsby";
 import { formatDate } from "../../services/date-formatter/date-formatter";
 import './post-component.scss'
-
 interface PostComponentProps {
     post: PostTypes.PostNode;
     isMostRecent?: boolean;
@@ -75,7 +74,7 @@ function PostComponent({ post, isMostRecent = false }: PostComponentProps) {
                             <Link to={post.uri}>
                                 <div className="default-image"
                                     style={{
-                                        backgroundImage: `url(https://fwned.com/wp-content/uploads/2017/06/FWNED.png)`,
+                                        backgroundImage: `url('.)`,
                                         backgroundPosition: 'center center',
                                         backgroundSize: 'cover',
                                         backgroundRepeat: 'no-repeat'
