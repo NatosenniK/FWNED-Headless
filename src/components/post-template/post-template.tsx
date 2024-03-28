@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../layout/layout"
 import { PostTypes } from "../../services/posts/posts.types"
 import Seo from "../seo";
-import './post-template.css'
+import './post-template.scss'
 import Sidebar from "../sidebar/sidebar";
 import { formatDate } from "../../services/date-formatter/date-formatter";
 

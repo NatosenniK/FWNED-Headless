@@ -1,5 +1,5 @@
 import * as React from "react"
-import './sidebar.css'
+import './sidebar.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "gatsby";
@@ -7,7 +7,7 @@ function Sidebar() {
 
     return (
         <>
-            <div className="sidebar col-3">
+            <div className="sidebar col-12 col-lg-3">
                 <div className="sidebar-heading mb-5">
                     FOLLOW FWNED
                 </div>

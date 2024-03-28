@@ -2,7 +2,7 @@ import React from "react"
 import { PostTypes } from "../../services/posts/posts.types";
 import { Link } from "gatsby";
 import { formatDate } from "../../services/date-formatter/date-formatter";
-import './post-component.css'
+import './post-component.scss'
 
 interface PostComponentProps {
     post: PostTypes.PostNode;
@@ -57,8 +57,8 @@ function PostComponent({ post, isMostRecent = false }: PostComponentProps) {
                 </div>
             </div>
     ) : (
-        <div key={post.id} className="col-12 d-flex mb-4 post-list-small">
-                <div className="col-4 image-container">
+        <div key={post.id} className="col-12 d-md-flex mb-4 post-list-small">
+                <div className="col-12 col-md-4 pe-md-3 mb-3 mb-md-0">
                     {post.featuredImage ? (
                         <Link to={post.uri}>
                             <div className="default-image" 
@@ -84,7 +84,7 @@ function PostComponent({ post, isMostRecent = false }: PostComponentProps) {
                             </Link>
                     )}
                 </div>
-                <div className="col-8 content-container">
+                <div className="col-12 col-md-8 content-container">
                     <Link to={post.uri}><h2>{post.title}</h2></Link>
                     <div className="meta-data">
                         <div className="date">Published: <span>{formatDate(post.date)}</span></div>

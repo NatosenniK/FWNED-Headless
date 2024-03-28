@@ -10,13 +10,16 @@
 .wp-element-caption {
     text-align: center;
 }
-.post-template .meta-data {
-    display: flex;
-    margin-bottom: 20px;
-    font-size: .9rem;
-    opacity: .9;
-}
+.post-template {
 
-.post-template .meta-data .author {
-    margin-right: 20px;
+    .meta-data {
+        display: flex;
+        margin-bottom: 20px;
+        font-size: .9rem;
+        opacity: .9;
+
+        .author {
+            margin-right: 20px;
+        }
+    }
 }

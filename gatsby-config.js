@@ -47,5 +47,6 @@ module.exports = {
         useACF: false,
       },
     },
+    `gatsby-plugin-sass`,
   ],
 }

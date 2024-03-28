@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
-import "../components/index.css";
+import "../components/index.scss";
 import PostComponent from "../components/post-component/post-component"
 import Sidebar from "../components/sidebar/sidebar"
 
@@ -37,8 +37,8 @@ function IndexPage() {
 
   return (
       <Layout>
-          <div className="d-flex">
-            <div style={{ maxWidth: "var(--size-content)", paddingRight: "50px"}} className="col-9">
+          <div className="d-lg-flex">
+            <div style={{ maxWidth: "var(--size-content)"}} className="col-12 col-lg-9 pe-lg-3">
                 {posts.map((post: any, index: number) => (
                   <PostComponent key={post.id} post={post} isMostRecent={index === 0} />
                 ))}
