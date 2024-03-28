@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import './hamburger-menu.snpm css'
+import './hamburger-menu.scss'
 
 function HamburgerMenu() {
   const [isMenuOpen, setMenuOpen] = useState(false);
